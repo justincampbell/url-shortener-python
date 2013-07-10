@@ -17,7 +17,10 @@ def shorten():
 @app.route("/<token>")
 def expand(token):
     url = shortener.expand(token)
-    return redirect(url)
+    if url:
+        return redirect(url)
+    else:
+        return "Not found", 404
 
 if __name__ == "__main__":
   app.run()

@@ -11,5 +11,5 @@ class Shortener(object):
     return token
 
   def expand(self, token):
-    return self.urls[token]
+    return self.urls.get(token, None)
 

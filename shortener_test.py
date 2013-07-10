@@ -19,5 +19,8 @@ class TestShortener(unittest.TestCase):
         self.assertNotEqual(TestShortener.url, token)
         self.assertNotEqual(token, self.shortener.shorten("http://another.com"))
 
+    def test_expand_nonexistant_token(self):
+        self.assertIsNone(self.shortener.expand("herpderp"))
+
 if __name__ == '__main__':
     unittest.main()

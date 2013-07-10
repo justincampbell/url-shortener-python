@@ -25,5 +25,9 @@ class WebTest(unittest.TestCase):
         self.assertEqual(expand_response.status_code, 302)
         self.assertEqual(expand_response.headers['Location'], WebTest.url)
 
+    def test_expand_nonexistant_token(self):
+        response = self.app.get("/herpderp")
+        self.assertEqual(response.status_code, 404)
+
 if __name__ == '__main__':
     unittest.main()
